@@ -45,7 +45,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive ? "font-bold text-emerald-500" : ""
         }
-        to="/about"
+        to="/myvisas"
       >
         My added visas
       </NavLink>
@@ -54,7 +54,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive ? "font-bold text-emerald-500" : ""
           }
-          to="/profile"
+          to="/visa-application"
         >
           Application
         </NavLink>
