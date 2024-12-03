@@ -1,8 +1,20 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const user = "a";
-  // ----------all_navlinks-----------
+  const { user, logOut } = useContext(AuthContext);
+  console.log(logOut)
+  // ------------ handle logout-----------
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        toast.success("Goodbye! See you soon!");
+      })
+      .catch();
+  };
+  // -------------all_navlinks-----------
   const navLinks = (
     <div className="flex flex-col lg:flex-row gap-5 font-medium">
       <NavLink
@@ -99,7 +111,7 @@ const Navbar = () => {
               </div>
 
               <button
-                // onClick={handleLogout}
+                onClick={handleLogout}
                 className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
               >
                 Logout
@@ -107,7 +119,7 @@ const Navbar = () => {
             </section>
           ) : (
             <Link
-              to="/auth/login"
+              to="/login"
               className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
             >
               Login
