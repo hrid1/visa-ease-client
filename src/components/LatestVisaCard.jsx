@@ -3,7 +3,7 @@ import {
   AiOutlineDollar,
   AiOutlineInfoCircle,
 } from "react-icons/ai";
-import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const LatestVisaCard = ({ visa }) => {
   return (

@@ -1,4 +1,5 @@
 import Banner from "../../components/Banner";
+import FaqSection from "../../components/FaqSection";
 import LatestVisas from "../../components/LatestVisas";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <Banner />
       <LatestVisas />
+      <FaqSection />
     </div>
   );
 };
