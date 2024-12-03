@@ -6,7 +6,7 @@ const LatestVisas = () => {
   return (
     <section className="my-4 md:my-8 lg:my-12 px-4">
       <div>
-        <h2 className="text-center font-bold my-4 md:my-8 text-xl md:text-3xl">
+        <h2 className="text-center font-bold my-4 md:my-8 text-xl md:text-4xl">
           Latest Visas
         </h2>
       </div>
