@@ -106,7 +106,7 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end mr-4 md:mr-8">
           {user ? (
             <section className="flex gap-3  items-center ">
               {/* <div className="avatar placeholder border-2 rounded-full cursor-pointer hover:">
@@ -127,7 +127,7 @@ const Navbar = () => {
                 onMouseLeave={() => setIsHovered(false)}
               >
                 {/* Avatar */}
-                <div className="avatar placeholder border-2 rounded-full">
+                <div className="avatar placeholder border-2 rounded-full ">
                   <div className="w-11 rounded-full">
                     <img
                       src={user?.photoURL}
@@ -140,7 +140,7 @@ const Navbar = () => {
 
                 {/* Hover Content */}
                 {isHovered && (
-                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md p-3 text-center z-10 w-40">
+                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md p-3 text-center z-10 w-28">
                     {/* Display Name */}
                     <p className="text-sm text-gray-800 font-semibold">
                       {user?.displayName || "User"}
@@ -149,7 +149,7 @@ const Navbar = () => {
                     {/* Logout Button */}
                     <button
                       onClick={handleLogout}
-                      className="mt-2 px-4 py-1 bg-emerald-500 text-white text-sm rounded hover:bg-emerald-600 focus:outline-none"
+                      className="mt-2 px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded hover:bg-emerald-600 focus:outline-none"
                     >
                       Logout
                     </button>
@@ -157,12 +157,12 @@ const Navbar = () => {
                 )}
               </div>
 
-              <button
+              {/* <button
                 onClick={handleLogout}
                 className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
               >
                 Logout
-              </button>
+              </button> */}
             </section>
           ) : (
             <div className="flex gap-2">
