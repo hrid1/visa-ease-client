@@ -1,11 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(logOut)
+  console.log(logOut);
   // ------------ handle logout-----------
   const handleLogout = () => {
     logOut()
@@ -14,6 +14,17 @@ const Navbar = () => {
       })
       .catch();
   };
+
+  // handle Hover
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   // -------------all_navlinks-----------
   const navLinks = (
     <div className="flex flex-col lg:flex-row gap-5 font-medium">
@@ -98,7 +109,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <section className="flex gap-3  items-center ">
-              <div className="avatar placeholder border-2 rounded-full">
+              {/* <div className="avatar placeholder border-2 rounded-full cursor-pointer hover:">
                 <div className="avatar">
                   <div className="w-11 rounded-full">
                     <img
@@ -108,6 +119,42 @@ const Navbar = () => {
                     />
                   </div>
                 </div>
+              </div> */}
+
+              <div
+                className="relative"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                {/* Avatar */}
+                <div className="avatar placeholder border-2 rounded-full">
+                  <div className="w-11 rounded-full">
+                    <img
+                      src={user?.photoURL}
+                      alt="profile-pic"
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+
+                {/* Hover Content */}
+                {isHovered && (
+                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md p-3 text-center z-10 w-40">
+                    {/* Display Name */}
+                    <p className="text-sm text-gray-800 font-semibold">
+                      {user?.displayName || "User"}
+                    </p>
+
+                    {/* Logout Button */}
+                    <button
+                      onClick={handleLogout}
+                      className="mt-2 px-4 py-1 bg-emerald-500 text-white text-sm rounded hover:bg-emerald-600 focus:outline-none"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
               </div>
 
               <button
@@ -118,12 +165,20 @@ const Navbar = () => {
               </button>
             </section>
           ) : (
-            <Link
-              to="/login"
-              className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
-            >
-              Login
-            </Link>
+            <div className="flex gap-2">
+              <Link
+                to="/login"
+                className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
+              >
+                Register
+              </Link>
+            </div>
           )}
         </div>
       </div>
