@@ -6,7 +6,7 @@ import LatestVisas from "../../components/LatestVisas";
 const Home = () => {
   return (
     <div>
-      <Banner />
+      {/* <Banner /> */}
       <LatestVisas />
       <AboutUs />
       <FaqSection />
