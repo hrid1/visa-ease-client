@@ -178,7 +178,7 @@ const AddVisa = () => {
 
         {/* Age Restriction */}
         <div>
-          <label className="label">Age </label>
+          <label className="label">Age Restrication</label>
           <input
             type="number"
             name="age"

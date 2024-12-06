@@ -4,8 +4,10 @@ import {
   AiOutlineInfoCircle,
 } from "react-icons/ai";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const LatestVisaCard = ({ visa }) => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="card w-full  bg-base-200 shadow-xl ">
@@ -58,9 +60,7 @@ const LatestVisaCard = ({ visa }) => {
           <div className="card-actions mt-4">
             <button
               className="btn bg-teal-600 text-white w-full"
-              onClick={() =>
-                alert(`Navigating to details for ${visa?.country}`)
-              }
+              onClick={() => navigate(`/visa/${visa._id}`)}
             >
               See Details
               <FaArrowRightLong />
