@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const AddVisa = () => {
-  // const visaTypes = ["Tourist Visa", "Student Visa", "Official Visa"];
+  const { user } = useContext(AuthContext);
+
+  
   const documentOptions = [
     "Valid passport",
     "Visa application form",
@@ -48,6 +51,7 @@ const AddVisa = () => {
       formattedDate,
       applicationmethod,
       createdAt: new Date().toISOString(),
+      useremail: user?.email,
     };
 
     console.log(formData);
@@ -70,15 +74,17 @@ const AddVisa = () => {
             });
             //
             form.reset();
+          } else {
+            console.log("error");
           }
         }
       });
   };
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-6">Add Visa</h1>
+      <h1 className="text-2xl font-bold mb-6 text-center">Add Your Visa</h1>
       <form
-        className="md:grid md:grid-cols-2  gap-6 bg-base-100 p-6 shadow-lg rounded-lg md:w-10/12 mx-auto"
+        className="md:grid md:grid-cols-2  gap-6 bg-base-200 p-6 shadow-lg rounded-lg md:w-10/12 mx-auto"
         onSubmit={handleSubmit}
       >
         {/* Country Image */}

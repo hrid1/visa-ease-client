@@ -44,6 +44,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addvisa",
+        element: (
+          <PrivateRoutes>
+            <AddVisa />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/myvisas",
