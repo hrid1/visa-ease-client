@@ -2,6 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
 
 const AddVisa = () => {
   // const visaTypes = ["Tourist Visa", "Student Visa", "Official Visa"];
@@ -47,8 +48,30 @@ const AddVisa = () => {
       formattedDate,
       applicationmethod,
     };
-    // console.log(formattedDate, visatype, selectedDocuments);
+
     console.log(formData);
+    // send to the server
+    fetch("http://localhost:8000/visas", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        {
+          if (data.acknowledged) {
+            Swal.fire({
+              title: "Well Done!",
+              text: "Your Visa have Created Successfully!",
+              icon: "success",
+            });
+            //
+            form.reset();
+          }
+        }
+      });
   };
   return (
     <div className="container mx-auto p-4">
@@ -67,7 +90,7 @@ const AddVisa = () => {
             className="input input-bordered w-full"
             // value={formData.countryImage}
             // onChange={handleInputChange}
-            requiredf
+            required
           />
         </div>
 
@@ -81,7 +104,7 @@ const AddVisa = () => {
             className="input input-bordered w-full"
             // value={formData.countryName}
             // onChange={handleInputChange}
-            requiredf
+            required
           />
         </div>
 
@@ -94,7 +117,7 @@ const AddVisa = () => {
             style={{ maxWidth: "100%" }}
             // value={formData.visaType}
             // onChange={handleInputChange}
-            requiredf
+            required
           >
             <option value="" disabled>
               Select Visa Type
@@ -116,13 +139,13 @@ const AddVisa = () => {
             className="input input-bordered w-full"
             // value={formData.processingTime}
             // onChange={handleInputChange}
-            requiredf
+            required
           />
         </div>
 
-        {/* requiredf Documents */}
+        {/* required Documents */}
         <div className="col-span-2">
-          <label className="label">requiredf Documents</label>
+          <label className="label">required Documents</label>
           <div className="flex flex-wrap gap-4">
             {documentOptions.map((doc, index) => (
               <label key={index} className="flex items-center space-x-2">
@@ -148,13 +171,13 @@ const AddVisa = () => {
             className="textarea textarea-bordered w-full"
             // value={formData.description}
             // onChange={handleInputChange}
-            requiredf
+            required
           />
         </div>
 
         {/* Age Restriction */}
         <div>
-          <label className="label">Age Restriction</label>
+          <label className="label">Age </label>
           <input
             type="number"
             name="age"
@@ -173,9 +196,10 @@ const AddVisa = () => {
             name="fee"
             placeholder="Enter Fee"
             className="input input-bordered w-full"
+            defaultValue="6000"
             // value={formData.fee}
             // onChange={handleInputChange}
-            requiredf
+            required
           />
         </div>
 
@@ -189,7 +213,7 @@ const AddVisa = () => {
             className="input input-bordered w-full"
             // value={formData.validity}
             // onChange={handleInputChange}
-            requiredf
+            required
           /> */}
           <div className="w-full">
             <DatePicker
@@ -208,9 +232,10 @@ const AddVisa = () => {
             name="applicationMethod"
             placeholder="Enter Application Method"
             className="input input-bordered w-full"
+            defaultValue={"Online"}
             // value={formData.applicationMethod}
             // onChange={handleInputChange}
-            requiredf
+            required
           />
         </div>
 
