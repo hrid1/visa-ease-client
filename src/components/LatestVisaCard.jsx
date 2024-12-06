@@ -8,13 +8,13 @@ import { FaArrowRightLong } from "react-icons/fa6";
 const LatestVisaCard = ({ visa }) => {
   return (
     <div>
-      <div className="card w-full  bg-base-100 shadow-xl">
+      <div className="card w-full  bg-base-200 shadow-xl ">
         {/* Country Image */}
         <figure>
           <img
-            src={visa?.countryImage}
+            src={visa?.countryimg}
             alt={visa?.country}
-            className="h-48 w-full object-cover"
+            className="h-48 md:h-60 w-full object-cover"
           />
         </figure>
 
@@ -26,31 +26,32 @@ const LatestVisaCard = ({ visa }) => {
           {/* Visa Type */}
           <p className="text-sm">
             <AiOutlineInfoCircle className="inline-block mr-2" />
-            Visa Type: <span className="font-semibold">{visa?.visaType}</span>
+            Visa Type: <span className="font-semibold">{visa?.visatype}</span>
           </p>
 
           {/* Processing Time */}
           <p className="text-sm">
             <AiOutlineClockCircle className="inline-block mr-2" />
             Processing Time:{" "}
-            <span className="font-semibold">{visa?.processingTime}</span>
+            <span className="font-semibold">{visa?.processingtime}</span>
           </p>
 
           {/* Fee */}
           <p className="text-sm">
             <AiOutlineDollar className="inline-block mr-2" />
-            Fee: <span className="font-semibold">${visa?.fee}</span>
+            Fee: <span className="font-semibold">${visa?.visafee}</span>
           </p>
 
           {/* Validity */}
           <p className="text-sm">
-            Validity: <span className="font-semibold">{visa?.validity}</span>
+            Validity:{" "}
+            <span className="font-semibold">{visa?.formattedDate}</span>
           </p>
 
           {/* Application Method */}
           <p className="text-sm">
             Application Method:{" "}
-            <span className="font-semibold">{visa?.applicationMethod}</span>
+            <span className="font-semibold">{visa?.applicationmethod}</span>
           </p>
 
           {/* See Details Button */}

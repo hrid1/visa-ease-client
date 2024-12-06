@@ -47,6 +47,7 @@ const AddVisa = () => {
       visafee,
       formattedDate,
       applicationmethod,
+      createdAt: new Date().toISOString(),
     };
 
     console.log(formData);
