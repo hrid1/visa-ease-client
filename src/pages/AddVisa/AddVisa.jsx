@@ -16,13 +16,6 @@ const AddVisa = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [selectedDocuments, setSelectedDocuments] = useState([]);
 
-  // const handleCheckboxChange = (event) => {
-  //   const { value, checked } = event.target;
-  //   setSelectedDocuments((prev) =>
-  //     checked ? [...prev, value] : prev.filter((doc) => doc !== value)
-  //   );
-  // };
-
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
@@ -225,15 +218,7 @@ const AddVisa = () => {
         {/* Validity */}
         <div>
           <label className="label ">Validity</label>
-          {/* <input
-            type="text"
-            name="validity"
-            placeholder="Enter Validity (e.g., 6 months)"
-            className="input input-bordered w-full"
-            // value={formData.validity}
-            // onChange={handleInputChange}
-            required
-          /> */}
+      
           <div className="w-full">
             <DatePicker
               className="border-2 p-2 rounded-md w-full"
