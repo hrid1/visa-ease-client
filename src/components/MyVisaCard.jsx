@@ -1,11 +1,9 @@
-import { useContext, useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
+
 import { AiOutlineClockCircle, AiOutlineDollar } from "react-icons/ai";
 import { FaPassport } from "react-icons/fa";
 import { FiEdit, FiTrash } from "react-icons/fi";
 import Swal from "sweetalert2";
-import { parse } from "date-fns";
-import { AuthContext } from "../provider/AuthProvider";
+
 
 const MyVisaCard = ({ visa, visas, setVisas, handleUpdate }) => {
   // handle Delete

@@ -4,6 +4,7 @@ import { FaPassport } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
 import ApplicationCard from "../../components/ApplicationCard";
+import Swal from "sweetalert2";
 
 const VisaApplication = () => {
   const data = useLoaderData();
@@ -11,9 +12,35 @@ const VisaApplication = () => {
   const [applications, setApplications] = useState(data);
   // console.log(applications);
   const handleCancel = (id) => {
-    console.log(id)
-  }
+    // console.log(id)
+    fetch(`http://localhost:8000/application/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        //  console.log(data)
+        if (data.deletedCount) {
+          // show success
+          Swal.fire({
+            title: "Deleted!",
+            text: "Visa successfuly removed!",
+            icon: "warning",
+            showConfirmButton: false,
+            timer: 1500,
+          });
 
+          // update ui
+          const filterVisas = applications.filter((visa) => visa._id !== id);
+          setApplications(filterVisas);
+        } else {
+          Swal.fire({
+            title: "Opps!",
+            text: "There is an issu!",
+            icon: "error",
+          });
+        }
+      });
+  };
 
   return (
     <section className="p-6 bg-gray-100">

@@ -59,7 +59,7 @@ const AddVisa = () => {
       useremail: user?.email,
     };
 
-    console.log(formData);
+    // console.log(formData);
     // send to the server
     fetch("http://localhost:8000/visas", {
       method: "POST",
@@ -80,7 +80,11 @@ const AddVisa = () => {
             //
             form.reset();
           } else {
-            console.log("error");
+            Swal.fire({
+              title: "Error!",
+              text: "Your Visa have Created Failed!",
+              icon: "error",
+            });
           }
         }
       });

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
-// import { set } from "react-datepicker/dist/date_utils";
+import Swal from "sweetalert2";
 
 const VisaDetails = () => {
   const visa = useLoaderData();
@@ -17,7 +17,6 @@ const VisaDetails = () => {
     fee: visa.visafee || "",
     // ...visa,
     visaInfo: visa,
-   
   });
 
   //   handle input
@@ -37,7 +36,23 @@ const VisaDetails = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.acknowledged) {
+          Swal.fire({
+            title: "Congratulatoin!",
+            text: "You apllication is processing !",
+            icon: "success",
+          });
+          // modal close
+          setIsModalOpen(false);
+        } else {
+          Swal.fire({
+            title: "Error!",
+            text: "You apllication is Faild !",
+            icon: "error",
+          });
+        }
+      });
   };
   return (
     <div>

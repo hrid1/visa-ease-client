@@ -69,7 +69,7 @@ const Register = () => {
   const handleShowEye = (show) => {
     setShow(!show);
   };
-  console.log(show);
+
   return (
     <div className="flex items-center justify-center  min-h-[calc(100vh-80px)]">
       <div className="w-full border max-w-md p-6 bg-white rounded-lg shadow-xl">

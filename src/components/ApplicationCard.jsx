@@ -3,14 +3,12 @@ import { AiOutlineClockCircle, AiOutlineDollar } from "react-icons/ai";
 import { FaPassport } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
 
-const ApplicationCard = ({ application,  }) => {
+const ApplicationCard = ({ application, handleCancel }) => {
   const { _id, email, firstName, lastName, appliedDate, visaInfo } =
     application || {};
 
   //   console.log(visaInfo);
-  const handleCancel = (id) => {
-    console.log(id)
-  }
+ 
 
   return (
     <>

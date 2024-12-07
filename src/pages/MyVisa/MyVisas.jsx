@@ -25,17 +25,21 @@ const MyVisas = () => {
   ];
   const [startDate, setStartDate] = useState(new Date());
   const [selectedDocuments, setSelectedDocuments] = useState([]);
+
   const handleCheckboxChange = (event) => {
     const { value, checked } = event.target;
-    setSelectedDocuments((prev) =>
-      checked ? [...prev, value] : prev.filter((doc) => doc !== value)
-    );
+
+    if (checked) {
+      setSelectedDocuments([...selectedDocuments, value]); // Add the document
+    } else {
+      setSelectedDocuments(selectedDocuments.filter((doc) => doc !== value)); // Remove the document
+    }
   };
 
   // update button// Update button
 
   const handleUpdate = (id) => {
-    console.log("Updating visa with ID:", id);
+    // console.log("Updating visa with ID:", id);
 
     // Fetch the visa by ID
     fetch(`http://localhost:8000/visa/${id}`)
@@ -84,7 +88,7 @@ const MyVisas = () => {
     };
 
     // SEND TO THE SERVER
-    console.log("Form Data to be submitted:", formData, curVisa._id);
+    // console.log("Form Data to be submitted:", formData, curVisa._id);
     fetch(`http://localhost:8000/myvisa/${curVisa._id}`, {
       method: "PUT",
       headers: {
@@ -102,7 +106,7 @@ const MyVisas = () => {
         const modal = document.getElementById("my_modal_4");
         modal.close();
         // show
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Update Done!",
