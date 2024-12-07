@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(logOut);
+
   // ------------ handle logout-----------
   const handleLogout = () => {
     logOut()
@@ -17,13 +17,7 @@ const Navbar = () => {
 
   // handle Hover
   const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
 
   // -------------all_navlinks-----------
   const navLinks = (

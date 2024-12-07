@@ -61,6 +61,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/visa-application",
+        loader: () => fetch("http://localhost:8000/application"),
         element: (
           <PrivateRoutes>
             <VisaApplication />

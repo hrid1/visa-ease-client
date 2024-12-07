@@ -8,21 +8,31 @@ import { AuthContext } from "../../provider/AuthProvider";
 const AddVisa = () => {
   const { user } = useContext(AuthContext);
 
-  
   const documentOptions = [
     "Valid passport",
     "Visa application form",
     "Recent passport-sized photograph",
   ];
-
   const [startDate, setStartDate] = useState(new Date());
   const [selectedDocuments, setSelectedDocuments] = useState([]);
 
+  // const handleCheckboxChange = (event) => {
+  //   const { value, checked } = event.target;
+  //   setSelectedDocuments((prev) =>
+  //     checked ? [...prev, value] : prev.filter((doc) => doc !== value)
+  //   );
+  // };
+
   const handleCheckboxChange = (event) => {
-    const { value, checked } = event.target;
-    setSelectedDocuments((prev) =>
-      checked ? [...prev, value] : prev.filter((doc) => doc !== value)
-    );
+    const value = event.target.value;
+    const isChecked = event.target.checked;
+    setSelectedDocuments((previousDocuments) => {
+      if (isChecked) {
+        return [...previousDocuments, value];
+      } else {
+        return previousDocuments.filter((doc) => doc !== value);
+      }
+    });
   };
   // handle Form Submit
   const handleSubmit = (e) => {
@@ -38,6 +48,7 @@ const AddVisa = () => {
     const visafee = form.fee.value;
     const formattedDate = startDate.toLocaleDateString("en-CA");
     const applicationmethod = form.applicationMethod.value;
+    const reqdocs = selectedDocuments;
 
     // formData
     const formData = {
@@ -50,6 +61,7 @@ const AddVisa = () => {
       visafee,
       formattedDate,
       applicationmethod,
+      reqdocs,
       createdAt: new Date().toISOString(),
       useremail: user?.email,
     };

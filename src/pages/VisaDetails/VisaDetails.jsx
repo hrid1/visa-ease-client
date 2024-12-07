@@ -6,7 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const VisaDetails = () => {
   const visa = useLoaderData();
   const { user } = useContext(AuthContext); // Get logged-in user's email
-  console.log(visa);
+  // console.log(visa);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -15,6 +15,9 @@ const VisaDetails = () => {
     lastName: "",
     appliedDate: new Date().toLocaleDateString("en-CA"), // Current date
     fee: visa.visafee || "",
+    // ...visa,
+    visaInfo: visa,
+   
   });
 
   //   handle input
@@ -25,7 +28,16 @@ const VisaDetails = () => {
   //   handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log("Form Data",formData);
+    fetch("http://localhost:8000/visa/application", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div>
@@ -172,7 +184,7 @@ const VisaDetails = () => {
                 <button
                   type="submit"
                   className="btn btn-success"
-                  onClick={() => setIsModalOpen(false)}
+                  // onClick={() => setIsModalOpen(false)}
                 >
                   Apply
                 </button>
