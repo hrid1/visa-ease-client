@@ -17,7 +17,13 @@ const Navbar = () => {
 
   // handle Hover
   const [isHovered, setIsHovered] = useState(false);
-
+  
+  // Toogle Theme
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
 
   // -------------all_navlinks-----------
   const navLinks = (
@@ -69,7 +75,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 container mx-auto ">
+      <div className="navbar bg-base-200 container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown z-10">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -115,6 +121,10 @@ const Navbar = () => {
                 </div>
               </div> */}
 
+              <button className=" btn-primary" onClick={toggleTheme}>
+              <input type="checkbox" value="synthwave" className="toggle theme-controller" />
+              </button>
+
               <div
                 className="relative"
                 onMouseEnter={() => setIsHovered(true)}
@@ -150,13 +160,6 @@ const Navbar = () => {
                   </div>
                 )}
               </div>
-
-              {/* <button
-                onClick={handleLogout}
-                className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
-              >
-                Logout
-              </button> */}
             </section>
           ) : (
             <div className="flex gap-2">

@@ -27,7 +27,7 @@ const AllVisa = () => {
   // console.log(filterVisas);
 
   return (
-    <section className="p-6 bg-gray-100">
+    <section className="p-6 bg-base-100">
       <h1 className="text-3xl font-bold text-center mb-8">All Visas</h1>
 
       {/* Dropdown Menu for Filtering */}
@@ -51,7 +51,7 @@ const AllVisa = () => {
       {/* Visa Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {filterVisas.map((visa, index) => (
-          <div key={index} className="card bg-white shadow-lg rounded-lg p-4">
+          <div key={index} className="card bg-base-200 shadow-lg rounded-lg p-4">
             {/* Visa Image */}
             <div className="w-full h-40 rounded-md overflow-hidden mb-4">
               <img

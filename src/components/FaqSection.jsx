@@ -12,13 +12,13 @@ const FaqSection = () => {
         {/* img */}
 
         <div className=" w-full md:w-1/2 p-2  rounded-md">
-          <Slide direction="right">
-            <img className="w-full h-full object-cover" src={faqimg} alt="" />
+          <Slide direction="right" className="w-9/12 mx-auto ">
+            <img className="w-full h-full object-cover rounded-xl" src={faqimg} alt="" />
           </Slide>
         </div>
 
         {/* FAQ */}
-        <div className=" space-y-4 w-full md:w-1/2">
+        <div className=" space-y-4 w-full md:w-1/2 mr-2 md:mr-8">
           <Slide>
             <div className="collapse collapse-arrow bg-base-200">
               <input type="radio" name="my-accordion-2" defaultChecked />
