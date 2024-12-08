@@ -126,7 +126,7 @@ const Navbar = () => {
               </button>
 
               <div
-                className="relative"
+                className="relative "
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
@@ -144,7 +144,7 @@ const Navbar = () => {
 
                 {/* Hover Content */}
                 {isHovered && (
-                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md p-3 text-center z-10 w-28">
+                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md p-3 text-center z-10 w-28  ">
                     {/* Display Name */}
                     <p className="text-sm text-gray-800 font-semibold">
                       {user?.displayName || "User"}

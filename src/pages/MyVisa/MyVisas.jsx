@@ -9,11 +9,15 @@ const MyVisas = () => {
   const { user } = useContext(AuthContext);
   const [visas, setVisas] = useState([]);
   const [curVisa, setCurVisa] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://visa-server-zeta.vercel.app/myvisa?email=${user.email}`)
       .then((res) => res.json())
-      .then((data) => setVisas(data));
+      .then((data) => {
+        setLoading(false);
+        setVisas(data)
+      });
   }, [user.email]);
 
   //  ------------------------- Form Data update
@@ -122,6 +126,14 @@ const MyVisas = () => {
         }
       });
   };
+
+  // for loading data
+  if (loading)
+    return (
+      <div className=" flex items-center justify-center min-h-[80vh]">
+        <span className="loading loading-ring loading-lg text-emerald-500"></span>
+      </div>
+    );
 
   return (
     <section className="p-6 bg-base-100">
