@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineClockCircle, AiOutlineDollar } from "react-icons/ai";
 import { FaPassport } from "react-icons/fa";
 import { MdOutlineCancel } from "react-icons/md";
@@ -42,11 +42,32 @@ const VisaApplication = () => {
       });
   };
 
+  // handle serach
+  const [searchValue, setSearchValue] = useState("");
+  console.log(searchValue);
+  useEffect(() => {
+    fetch(`http://localhost:8000/application?searchParams=${searchValue}`)
+      .then((res) => res.json())
+      .then((data) => setApplications(data));
+  }, [searchValue]);
+
   return (
-    <section className="p-6 bg-gray-100">
+    <section className="p-6 bg-base-100">
       <h1 className="text-3xl font-bold text-center mb-8">
         My Visa Applications
       </h1>
+
+      <div className="mb-6 max-w-7xl mx-auto ">
+        <label htmlFor="visaFilter" className="block text-xl mb-2 font-medium ">
+          Find Your Visa
+        </label>
+        <input
+          onChange={(e) => setSearchValue(e.target.value)}
+          type="text"
+          placeholder="Type here"
+          className="input input-bordered w-full max-w-xs"
+        />
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
         {applications.map((application) => (

@@ -12,7 +12,7 @@ const ApplicationCard = ({ application, handleCancel }) => {
 
   return (
     <>
-      <div className="card bg-white shadow-lg rounded-lg p-4 relative">
+      <div className="card bg-base-200 shadow-lg rounded-lg p-4 relative">
         {/* Country Image */}
         <div className="w-full h-44 md:h-60 rounded-md overflow-hidden mb-4">
           <img

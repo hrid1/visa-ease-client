@@ -30,7 +30,7 @@ const AllVisa = () => {
     <section className="p-6 bg-base-100">
       <h1 className="text-3xl font-bold text-center mb-8">All Visas</h1>
 
-      {/* Dropdown Menu for Filtering */}
+      {/* Dropdown  for Filtering */}
       <div className="mb-6 max-w-md mx-auto">
         <label htmlFor="visaFilter" className="block mb-2 font-medium">
           Filter by Visa Type:
