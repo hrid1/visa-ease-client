@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 
 const MyVisaCard = ({ visa, visas, setVisas, handleUpdate }) => {
   // handle Delete
+  console.log(visa)
   const handleDelete = (id) => {
     // console.log("delete", id);
     fetch(`http://localhost:8000/myvisa/${id}`, {
@@ -43,7 +44,7 @@ const MyVisaCard = ({ visa, visas, setVisas, handleUpdate }) => {
   // console.log(curVisa);
   return (
     <div>
-      <div className="card bg-white shadow-lg rounded-lg p-4 relative">
+      <div className="card bg-base-200 shadow-lg rounded-lg p-4 relative">
         {/* Country Image */}
         <div className="w-full h-40 rounded-md overflow-hidden mb-4">
           <img
@@ -69,7 +70,7 @@ const MyVisaCard = ({ visa, visas, setVisas, handleUpdate }) => {
         </p>
         <p className="text-sm flex items-center mb-4">
           <span className="mr-2 font-semibold">Validity:</span>
-          {visa?.validity}
+          {visa?.formattedDate}
         </p>
         <p className="text-sm flex items-center mb-4">
           <span className="mr-2 font-semibold">Application Method:</span>
@@ -79,7 +80,7 @@ const MyVisaCard = ({ visa, visas, setVisas, handleUpdate }) => {
         {/* Action Buttons */}
         <div className="flex justify-between">
           <button
-            className="btn btn-secondary btn-sm flex items-center space-x-1"
+            className="btn bg-emerald-400 text-black btn-sm flex items-center space-x-1"
             onClick={() => handleUpdate(visa?._id)}
           >
             <FiEdit />

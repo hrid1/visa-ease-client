@@ -57,11 +57,7 @@ const Banner = () => {
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2">
                 <Typewriter
                   words={["Your Next Destination"]}
-                  // loop={false}
-                  // cursor
-                  // cursorStyle="_"
-                  // typeSpeed={70}
-                  // deleteSpeed={50}
+                  
                 />
               </h1>
               <p className="text-lg md:text-xl">
@@ -70,8 +66,7 @@ const Banner = () => {
                   loop={false}
                   cursor
                   cursorStyle="|"
-                  typeSpeed={50}
-                  deleteSpeed={30}
+                 
                 />
               </p>
             </div>

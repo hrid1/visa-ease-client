@@ -124,7 +124,7 @@ const MyVisas = () => {
   };
 
   return (
-    <section className="p-6 bg-gray-100">
+    <section className="p-6 bg-base-100">
       <h1 className="text-3xl font-bold text-center mb-8">My Added Visas</h1>
 
       {/* Visa Cards Grid */}

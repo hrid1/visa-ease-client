@@ -56,12 +56,12 @@ const VisaDetails = () => {
   };
   return (
     <div>
-      <section className="p-6 bg-gray-100">
+      <section className="p-6 bg-base-100">
         {/* Visa Title */}
         <h1 className="text-3xl font-bold text-center mb-6">{visa.country}</h1>
 
         {/* Visa Details Card */}
-        <div className="card bg-white shadow-lg rounded-lg p-6 max-w-5xl mx-auto">
+        <div className="card bg-base-300 shadow-lg rounded-lg p-6 max-w-5xl mx-auto">
           {/* Country Image */}
           <div className="w-full h-60 md:h-96 rounded-md overflow-hidden mb-6">
             <img

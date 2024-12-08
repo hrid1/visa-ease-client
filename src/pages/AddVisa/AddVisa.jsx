@@ -93,7 +93,7 @@ const AddVisa = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6 text-center">Add Your Visa</h1>
       <form
-        className="md:grid md:grid-cols-2  gap-6 bg-base-200 p-6 shadow-lg rounded-lg md:w-10/12 mx-auto"
+        className="md:grid md:grid-cols-2  gap-6 bg-base-300 p-6 shadow-lg rounded-lg md:w-10/12 mx-auto"
         onSubmit={handleSubmit}
       >
         {/* Country Image */}

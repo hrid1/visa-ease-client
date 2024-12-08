@@ -15,25 +15,26 @@ const AboutUs = () => {
         {/* Content Section */}
 
         <div className="w-full md:w-1/2 flex flex-col justify-start items-start gap-4 lg:gap-8">
-          <Slide>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold lg:w-2/3">
-              We are Dedicated to Best of Our Services
-            </h2>
-            <p className="text-sm md:text-base leading-relaxed">
-              Welcome to our language-learning platform. Explore vocabulary in
-              fun, engaging ways tailored to help you build confidence in
-              communication. Whether you&apos;re a beginner or an advanced
-              learner, our tools are designed to simplify language learning.
-              <br />
-              <br />
-              Discover lessons, tutorials, and interactive activities that make
-              acquiring new skills. Join us today and start your journey towards
-              fluency!
-            </p>
-            <button className="btn bg-emerald-500 text-white hover:bg-emerald-600 transition-all">
-              Learn More
-            </button>
-          </Slide>
+        <Slide>
+  <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold lg:w-2/3">
+    We are Dedicated to the Best of Our Services
+  </h2>
+  <p className="text-sm md:text-base leading-relaxed">
+    Welcome to our passport and visa assistance platform. Our goal is to make 
+    your travel documentation process smooth and hassle-free. From applying 
+    for a new passport to securing a visa for your next destination, we are here 
+    to guide you every step of the way.
+    <br />
+    <br />
+    Discover comprehensive support, expert advice, and tailored services to 
+    meet your specific needs. Let us help you simplify the complexities of 
+    international travel. Join us today and embark on your journey with confidence!
+  </p>
+  <button className="btn bg-emerald-500 text-white hover:bg-emerald-600 transition-all">
+    Learn More
+  </button>
+</Slide>
+
         </div>
 
         {/* Image Section */}

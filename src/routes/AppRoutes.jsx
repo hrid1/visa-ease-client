@@ -9,11 +9,13 @@ import PrivateRoutes from "./PrivateRoutes";
 import MyVisa from "../pages/MyVisa/MyVisas";
 import VisaApplication from "../pages/VisaApplication/VisaApplication";
 import VisaDetails from "../pages/VisaDetails/VisaDetails";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

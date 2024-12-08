@@ -61,7 +61,7 @@ const ApplicationCard = ({ application, handleCancel }) => {
         <div className="flex justify-end">
           <button
             onClick={() => handleCancel(_id)}
-            className="btn btn-error btn-sm flex items-center space-x-1"
+            className="btn btn-error  flex items-center space-x-1"
           >
             <MdOutlineCancel />
             <span>Cancel</span>

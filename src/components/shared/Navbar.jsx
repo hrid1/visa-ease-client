@@ -101,7 +101,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">visa</a>
+          <Link to="/" className="text-xl font-extrabold md:ml-6 ">VisaEa&e</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
