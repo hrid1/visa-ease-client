@@ -31,13 +31,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allvisas",
-        loader: () => fetch("http://localhost:8000/visas"),
+        loader: () => fetch("https://visa-server-zeta.vercel.app/visas"),
         element: <AllVisa />,
       },
       {
         path: "/visa/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/visa/${params.id}`),
+          fetch(`https://visa-server-zeta.vercel.app/visa/${params.id}`),
         element: (
           <PrivateRoutes>
             <VisaDetails />
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myvisas",
-        loader: () => fetch("http://localhost:8000/visas"),
+        loader: () => fetch("https://visa-server-zeta.vercel.app/visas"),
         element: (
           <PrivateRoutes>
             <MyVisa />
@@ -63,7 +63,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/visa-application",
-        loader: () => fetch("http://localhost:8000/application"),
+        loader: () => fetch("https://visa-server-zeta.vercel.app/application"),
         element: (
           <PrivateRoutes>
             <VisaApplication />

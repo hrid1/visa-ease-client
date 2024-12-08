@@ -11,7 +11,7 @@ const MyVisas = () => {
   const [curVisa, setCurVisa] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:8000/myvisa?email=${user.email}`)
+    fetch(`https://visa-server-zeta.vercel.app/myvisa?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setVisas(data));
   }, [user.email]);
@@ -42,7 +42,7 @@ const MyVisas = () => {
     // console.log("Updating visa with ID:", id);
 
     // Fetch the visa by ID
-    fetch(`http://localhost:8000/visa/${id}`)
+    fetch(`https://visa-server-zeta.vercel.app/visa/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setCurVisa(data);
@@ -89,7 +89,7 @@ const MyVisas = () => {
 
     // SEND TO THE SERVER
     // console.log("Form Data to be submitted:", formData, curVisa._id);
-    fetch(`http://localhost:8000/myvisa/${curVisa._id}`, {
+    fetch(`https://visa-server-zeta.vercel.app/myvisa/${curVisa._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -99,7 +99,7 @@ const MyVisas = () => {
       .then((res) => res.json())
       .then((data) => {
         // Re-fetch all visas
-        fetch(`http://localhost:8000/myvisa?email=${user.email}`)
+        fetch(`https://visa-server-zeta.vercel.app/myvisa?email=${user.email}`)
           .then((res) => res.json())
           .then((data) => setVisas(data));
         // Close the modal

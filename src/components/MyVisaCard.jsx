@@ -7,10 +7,10 @@ import Swal from "sweetalert2";
 
 const MyVisaCard = ({ visa, visas, setVisas, handleUpdate }) => {
   // handle Delete
-  console.log(visa)
+  // console.log(visa)
   const handleDelete = (id) => {
     // console.log("delete", id);
-    fetch(`http://localhost:8000/myvisa/${id}`, {
+    fetch(`https://visa-server-zeta.vercel.app/myvisa/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

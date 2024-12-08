@@ -13,7 +13,7 @@ const VisaApplication = () => {
   // console.log(applications);
   const handleCancel = (id) => {
     // console.log(id)
-    fetch(`http://localhost:8000/application/${id}`, {
+    fetch(`https://visa-server-zeta.vercel.app/application/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -44,9 +44,9 @@ const VisaApplication = () => {
 
   // handle serach
   const [searchValue, setSearchValue] = useState("");
-  console.log(searchValue);
+  // console.log(searchValue);
   useEffect(() => {
-    fetch(`http://localhost:8000/application?searchParams=${searchValue}`)
+    fetch(`https://visa-server-zeta.vercel.app/application?searchParams=${searchValue}`)
       .then((res) => res.json())
       .then((data) => setApplications(data));
   }, [searchValue]);

@@ -53,7 +53,7 @@ const Banner = () => {
               src={banner2}
               alt="Banner 2"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-30 text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2">
                 <Typewriter
                   words={["Your Next Destination"]}
@@ -81,7 +81,7 @@ const Banner = () => {
               src={banner3}
               alt="Banner 3"
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-30 text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 text-white">
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-2">
                 <Typewriter
                   words={["Explore the Unknown"]}

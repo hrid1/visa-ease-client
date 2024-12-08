@@ -28,7 +28,7 @@ const VisaDetails = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("Form Data",formData);
-    fetch("http://localhost:8000/visa/application", {
+    fetch("https://visa-server-zeta.vercel.app/visa/application", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
