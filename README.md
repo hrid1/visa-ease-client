@@ -25,7 +25,7 @@ VisaEa&e is a user-friendly portal designed to simplify the visa application pro
 2. Install dependencies using `npm install`.
 3. Set up the `.env` file with your Firebase and MongoDB credentials.
 4. Run the server with `npm run dev`.
-5. Open the frontend in your browser at `http://localhost:3000`.
+5. Open the frontend in your browser at `http://localhost:8000`.
 
 ## Contributing
 Feel free to contribute by submitting a pull request. Ensure all changes are well-documented.
