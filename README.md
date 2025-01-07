@@ -1,34 +1,32 @@
-# VisaEase
+# Lexi-Quest: German Vocabulary Learning Website
 
-VisaEa&e is a user-friendly portal designed to simplify the visa application process. With a dynamic interface and robust functionality, users can seamlessly browse visa requirements, apply for visas, and track their applications.
+## Live URL
+You can access the live version of the app here: [Lexi-Quest](https://lexi-quest-e4ae9.web.app/)
 
-## Live Site URL
-[Visit MyVisaNavigator Live](https://visa-ease-1621f.web.app/)
+## Purpose
+Lexi-Quest is a German vocabulary learning platform designed to help users expand their vocabulary through engaging methods. It allows users to listen to words, view example sentences, learn synonyms, and watch relevant videos to reinforce their learning.
 
-## Features
-- **Comprehensive Visa Listings**: Explore detailed information about various visas, including processing time, fees, and application methods.
-- **User-Specific Dashboard**: Users can view, update, and manage their visa applications securely.
-- **Responsive Design**: Optimized for all devices, including desktops, tablets, and mobile phones.
-- **Secure Authentication**: Seamless login and registration using Firebase Authentication.
-- **Interactive User Experience**: Includes advanced functionalities like a typewriter effect on key details and smooth navigation.
-- **CRUD Operations**: Easily add, update, or delete visa records with real-time updates.
-- **Application Tracking**: Track all submitted applications with applied dates and statuses.
+The platform is perfect for learners at all levels who want to improve their German language skills interactively and efficiently.
 
-## Tech Stack
-- **Frontend**: React, Tailwind CSS, Daisy UI, Swiper Slider
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: Firebase Authentication
+## Key Features
+- **Interactive Learning**: Users can listen to German words with example sentences.
+- **Synonyms**: Learn related words and expand vocabulary.
+- **Video Resources**: Watch videos for visual and auditory learning.
+- **Smooth Navigation**: Easily browse through words and lessons using a user-friendly interface.
+- **Responsive Design**: Fully responsive, optimized for both desktop and mobile.
+  
+## Key Technologies & NPM Packages
+This project uses the following key technologies and npm packages:
+- **React**: For building the user interface.
+- **AOS (Animate on Scroll)**: For adding scroll-based animations to make the learning experience more dynamic.
+- **React Countup**: To add smooth animations for number counting (e.g., learning progress).
+- **React Hot Toast**: For displaying toast notifications and feedback.
+- **React Icons**: For adding scalable vector icons throughout the app.
+- **React Router DOM**: For navigating between pages and different sections of the platform.
+- **Swiper**: To create smooth, touch-friendly carousels and slideshows for vocabulary lists and video resources.
 
-## How to Run Locally
-1. Clone the repository.
-2. Install dependencies using `npm install`.
-3. Set up the `.env` file with your Firebase and MongoDB credentials.
-4. Run the server with `npm run dev`.
-5. Open the frontend in your browser at `http://localhost:8000`.
+### Install Dependencies
+To install all required dependencies for the project, run:
 
-## Contributing
-Feel free to contribute by submitting a pull request. Ensure all changes are well-documented.
-
-## License
-This project is licensed under the MIT License.
+```bash
+npm install
