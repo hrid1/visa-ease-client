@@ -1,15 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
+import Auth from "../pages/Auth/Auth";
 import Home from "../pages/Home/Home";
-import Register from "../pages/Register/Register";
-import Login from "../pages/Login/Login";
-import AllVisa from "../pages/AllVisa/AllVisa";
-import AddVisa from "../pages/AddVisa/AddVisa";
+import Learning from "../pages/Learning/Learning";
+import Tutorial from "../pages/Tutorial/Tutorial";
+import Lesson from "../pages/Lesson/Lesson";
+import ErrorPage from "../pages/Error/ErrorPage";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
+import ForgotPassword from "../pages/Auth/FogotPassword";
+import Profile from "../pages/Profile/Profile";
 import PrivateRoutes from "./PrivateRoutes";
-import MyVisa from "../pages/MyVisa/MyVisas";
-import VisaApplication from "../pages/VisaApplication/VisaApplication";
-import VisaDetails from "../pages/VisaDetails/VisaDetails";
-import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import ProfileUpdate from "../pages/ProfileUpdate/ProfileUpdate";
 
 export const router = createBrowserRouter([
   {
@@ -22,53 +24,55 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/register",
-        element: <Register />,
+        path: "/learning",
+        element: <Learning />,
       },
       {
-        path: "/login",
+        path: "/tutorial",
+        element: <Tutorial />,
+      },
+      {
+        path: "/lesson/:id",
+        element: (
+          <PrivateRoutes>
+            <Lesson />
+          </PrivateRoutes>
+        ),
+        loader: () => fetch("../vacab2data.json"),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoutes>
+            <Profile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update-profile",
+        element: (
+          <PrivateRoutes>
+           <ProfileUpdate/>
+          </PrivateRoutes>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <Auth />,
+    children: [
+      {
+        path: "/auth/login",
         element: <Login />,
       },
       {
-        path: "/allvisas",
-        loader: () => fetch("https://visa-server-zeta.vercel.app/visas"),
-        element: <AllVisa />,
+        path: "/auth/register",
+        element: <Register />,
       },
       {
-        path: "/visa/:id",
-        loader: ({ params }) =>
-          fetch(`https://visa-server-zeta.vercel.app/visa/${params.id}`),
-        element: (
-          <PrivateRoutes>
-            <VisaDetails />
-          </PrivateRoutes>
-        ),
-      },
-      {
-        path: "/addvisa",
-        element: (
-          <PrivateRoutes>
-            <AddVisa />
-          </PrivateRoutes>
-        ),
-      },
-      {
-        path: "/myvisas",
-        loader: () => fetch("https://visa-server-zeta.vercel.app/visas"),
-        element: (
-          <PrivateRoutes>
-            <MyVisa />
-          </PrivateRoutes>
-        ),
-      },
-      {
-        path: "/visa-application",
-        loader: () => fetch("https://visa-server-zeta.vercel.app/application"),
-        element: (
-          <PrivateRoutes>
-            <VisaApplication />
-          </PrivateRoutes>
-        ),
+        path: "/auth/forgot-password",
+        element: <ForgotPassword></ForgotPassword>
       },
     ],
   },

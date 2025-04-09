@@ -1,12 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Navbar from "../components/shared/Navbar";
 import Footer from "../components/shared/Footer";
 
 const RootLayout = () => {
   return (
-    <div className="">
+    <div>
       <Navbar />
-      <div className="min-h-[calc(100vh-348px)] container mx-auto">
+      <ScrollRestoration/>
+      <div className="min-h-[calc(100vh-288px)] container mx-auto">
         <Outlet />
       </div>
       <Footer />

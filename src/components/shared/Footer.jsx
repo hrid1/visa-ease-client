@@ -1,9 +1,10 @@
-import {  FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FiYoutube } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="p-10 bg-base-200">
+    <div className="p-10 bg-teal-50">
       <footer className="footer  text-base-content container mx-auto">
         <nav>
           <h6 className="footer-title text-lg text-emerald-600 font-bold">Services</h6>
