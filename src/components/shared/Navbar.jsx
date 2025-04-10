@@ -52,7 +52,7 @@ const Navbar = () => {
       >
         Contact
       </NavLink>
-      
+
       <NavLink
         className={({ isActive }) =>
           isActive ? "font-bold text-emerald-500" : ""
@@ -81,7 +81,7 @@ const Navbar = () => {
           My added visas
         </NavLink>
       )}
-      {user && (
+     
         <NavLink
           className={({ isActive }) =>
             isActive ? "font-bold text-emerald-500" : ""
@@ -90,13 +90,13 @@ const Navbar = () => {
         >
           Application
         </NavLink>
-      )}
+ 
     </div>
   );
 
   return (
-    <div>
-      <div className="navbar bg-base-200 container mx-auto ">
+    <div className="bg-base-200 mb-2 sticky top-0 z-50 ">
+      <div className="navbar container  mx-auto ">
         <div className="navbar-start">
           <div className="dropdown z-10">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -130,6 +130,14 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
         <div className="navbar-end mr-4 md:mr-8">
+          <button className=" btn-primary mr-2">
+            <input
+              onClick={toggleTheme}
+              type="checkbox"
+              value="synthwave"
+              className="toggle theme-controller "
+            />
+          </button>
           {user ? (
             <section className="flex gap-3  items-center ">
               {/* <div className="avatar placeholder border-2 rounded-full cursor-pointer hover:">
@@ -143,14 +151,6 @@ const Navbar = () => {
                   </div>
                 </div>
               </div> */}
-
-              <button className=" btn-primary" onClick={toggleTheme}>
-                <input
-                  type="checkbox"
-                  value="synthwave"
-                  className="toggle theme-controller"
-                />
-              </button>
 
               <div
                 className="relative "

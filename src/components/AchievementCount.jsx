@@ -37,7 +37,7 @@ const AchievementCount = () => {
 
   return (
     <section
-      className="text-center bg-base-100 py-6 md:py-16 px-2"
+      className="text-center bg-base py-6 md:py-16 px-2"
       data-aos="fade-down"
     >
       <h2 className="text-4xl font-bold text- mb-4">
@@ -50,14 +50,14 @@ const AchievementCount = () => {
         community of inspired achievers.
       </p>
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 md:px-4 bg-base-200 py-2"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 md:px-4 bg-base-100 py-2"
         data-aos="zoom-in"
         data-aos-duration="900"
       >
         {stats.map((stat) => (
           <div
             key={stat.id}
-            className="bg-base-100 shadow-lg rounded-lg p-6 flex flex-col items-center"
+            className="bg-base-200 shadow-lg rounded-lg p-6 flex flex-col items-center"
           >
             {stat.icon}
             <h3 className="text-5xl font-bold  mt-3">
