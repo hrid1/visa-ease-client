@@ -1,15 +1,14 @@
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
-  sendPasswordResetEmail,
   signInWithEmailAndPassword,
-  signInWithPopup,
+  onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
-import { GoogleAuthProvider } from "firebase/auth";
 
 export const AuthContext = createContext(null);
 
@@ -24,6 +23,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
+
   const loginUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -37,19 +37,18 @@ const AuthProvider = ({ children }) => {
     return () => unSubscibe();
   }, [refetch]);
 
-  // update user
+  const logOut = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
+
+  //   update user info
   const updateUserInfo = (name, photo) => {
     // setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
     });
-  };
-
-  // logout user
-  const logOut = () => {
-    setLoading(true);
-    return signOut(auth);
   };
 
   // login with google
@@ -59,21 +58,16 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
-  // forgot password
-  const forgotPassword = (email) => {
-    // setLoading(true)
-    return sendPasswordResetEmail(auth, email);
-  };
-
+  //   authInfo
   const authInfo = {
     createUser,
     loginUser,
     logOut,
-    updateUserInfo,
-    loginWithGoogle,
     user,
-    forgotPassword,
     loading,
+    setLoading,
+    loginWithGoogle,
+    updateUserInfo,
     setRefetch,
   };
   return (

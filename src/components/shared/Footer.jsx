@@ -1,24 +1,36 @@
-import { FaFacebook, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
-import { FiYoutube } from "react-icons/fi";
+import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="p-10 bg-teal-50">
+    <div className="p-10 bg-base-200">
       <footer className="footer  text-base-content container mx-auto">
         <nav>
-          <h6 className="footer-title text-lg text-emerald-600 font-bold">Services</h6>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <h6 className="footer-title text-lg text-black font-bold">
+            VisaEa&e
+          </h6>
+          <a href="#latest" className="link link-hover">
+            Latest
+          </a>
+          <a href="#faq" className="link link-hover">
+            FAQ
+          </a>
+
+          <a href="#blogs" className="link link-hover">
+            Blogs
+          </a>
         </nav>
         <nav>
           <h6 className="footer-title text-lg text-emerald-600">Company</h6>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <Link to="/about" className="link link-hover">
+            About us
+          </Link>
+          <Link to="/contact" className="link link-hover">
+            Contact
+          </Link>
+          <Link to="/allvisas" className="link link-hover">
+            Visas
+          </Link>
         </nav>
         <nav>
           <h6 className="footer-title text-lg text-emerald-600">Social</h6>
@@ -30,7 +42,7 @@ const Footer = () => {
               <FaYoutube />
             </Link>
             <Link to="/" className="text-2xl">
-              <FaTwitter/>
+              <FaTwitter />
             </Link>
           </div>
 

@@ -1,22 +1,31 @@
-import { useContext } from "react";
-import { PiGoogleCardboardLogoBold } from "react-icons/pi";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-  // console.log(user);
+
+  // ------------ handle logout-----------
   const handleLogout = () => {
     logOut()
       .then(() => {
-        // alert("User LogOut");
         toast.success("Goodbye! See you soon!");
       })
       .catch();
   };
 
-  // all navlinks
+  // handle Hover
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Toogle Theme
+  const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", newTheme);
+  };
+
+  // -------------all_navlinks-----------
   const navLinks = (
     <div className="flex flex-col lg:flex-row gap-5 font-medium">
       <NavLink
@@ -31,51 +40,63 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive ? "font-bold text-emerald-500" : ""
         }
-        to="/learning"
-      >
-        Learning
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? "font-bold text-emerald-500" : ""
-        }
-        to="/tutorial"
-      >
-        Tutorials
-      </NavLink>
-      <NavLink
-        className={({ isActive }) =>
-          isActive ? "font-bold text-emerald-500" : ""
-        }
         to="/about"
       >
-        About Us
+        About
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "font-bold text-emerald-500" : ""
+        }
+        to="/contact"
+      >
+        Contact
+      </NavLink>
+      
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "font-bold text-emerald-500" : ""
+        }
+        to="/allvisas"
+      >
+        All Visas
       </NavLink>
       {user && (
         <NavLink
           className={({ isActive }) =>
             isActive ? "font-bold text-emerald-500" : ""
           }
-          to="/profile"
+          to="/addvisa"
         >
-          Profile
+          Add Visa
+        </NavLink>
+      )}
+      {user && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "font-bold text-emerald-500" : ""
+          }
+          to="/myvisas"
+        >
+          My added visas
+        </NavLink>
+      )}
+      {user && (
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "font-bold text-emerald-500" : ""
+          }
+          to="/visa-application"
+        >
+          Application
         </NavLink>
       )}
     </div>
   );
 
   return (
-    <>
-      {user && (
-        <div className=" mx-auto text-xs font-sh text-center bg-emerald-50 py-1">
-          <p>
-            Hello, <span className="font-medium">{user.displayName}!</span>{" "}
-            We&apos;re glad to have you back!
-          </p>
-        </div>
-      )}
-
-      <div className="navbar backdrop-blur-lg	 bg-emerald-5 container py-4 mx-auto sticky top-0 z-50">
+    <div>
+      <div className="navbar bg-base-200 container mx-auto ">
         <div className="navbar-start">
           <div className="dropdown z-10">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -96,51 +117,96 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded z-[1] mt-2 w-40 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               {navLinks}
             </ul>
           </div>
-          <Link
-            to="/"
-            className="flex items-center justify-center gap-2 text-xl md:text-2xl font-bold text-emerald-600"
-          >
-            <PiGoogleCardboardLogoBold />
-            LexiQuest
+          <Link to="/" className="text-xl font-extrabold md:ml-6 ">
+            VisaEa&e
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end mr-4 md:mr-8">
           {user ? (
             <section className="flex gap-3  items-center ">
-              <div className="avatar placeholder border-2 rounded-full">
+              {/* <div className="avatar placeholder border-2 rounded-full cursor-pointer hover:">
                 <div className="avatar">
                   <div className="w-11 rounded-full">
-                    <img src={user?.photoURL} alt="profile-pic"  referrerPolicy="no-referrer"    />
+                    <img
+                      src={user?.photoURL}
+                      alt="profile-pic"
+                      referrerPolicy="no-referrer"
+                    />
                   </div>
                 </div>
-              </div>
+              </div> */}
 
-              <button
-                onClick={handleLogout}
-                className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
-              >
-                Logout
+              <button className=" btn-primary" onClick={toggleTheme}>
+                <input
+                  type="checkbox"
+                  value="synthwave"
+                  className="toggle theme-controller"
+                />
               </button>
+
+              <div
+                className="relative "
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                {/* Avatar */}
+                <div className="avatar placeholder border-2 rounded-full ">
+                  <div className="w-11 rounded-full">
+                    <img
+                      src={user?.photoURL}
+                      alt="profile-pic"
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
+                </div>
+
+                {/* Hover Content */}
+                {isHovered && (
+                  <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-md p-3 text-center z-10 w-28  ">
+                    {/* Display Name */}
+                    <p className="text-sm text-gray-800 font-semibold">
+                      {user?.displayName || "User"}
+                    </p>
+
+                    {/* Logout Button */}
+                    <button
+                      onClick={handleLogout}
+                      className="mt-2 px-4 py-1 bg-emerald-500 text-white text-sm font-semibold rounded hover:bg-emerald-600 focus:outline-none"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                )}
+              </div>
             </section>
           ) : (
-            <Link
-              to="/auth/login"
-              className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
-            >
-              Login
-            </Link>
+            <div className="flex gap-2">
+              <Link
+                to="/login"
+                className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
+              >
+                Login
+              </Link>
+              <Link
+                to="/register"
+                className="px-3 bg-emerald-500 text-white font-medium rounded-md  py-2"
+              >
+                Register
+              </Link>
+            </div>
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

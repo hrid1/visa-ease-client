@@ -1,25 +1,19 @@
-import { useEffect } from "react";
 import AboutUs from "../../components/AboutUs";
+import AchievementCount from "../../components/AchievementCount";
 import Banner from "../../components/Banner";
-import Pricing from "../../components/Pricing";
-import Success from "../../components/Success";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import Blogs from "../../components/Blogs";
+import FaqSection from "../../components/FaqSection";
+import LatestVisas from "../../components/LatestVisas";
 
 const Home = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 1200,
-    });
-  }, []);
   return (
-    <div className="w-11/12 mx-auto">
+    <div>
       <Banner />
-      <Success />
+      <LatestVisas />
+      <AchievementCount />
       <AboutUs />
-      <Blogs/>
-      <Pricing />
+      <Blogs />
+      <FaqSection />
     </div>
   );
 };

@@ -4,11 +4,11 @@ import Footer from "../components/shared/Footer";
 
 const RootLayout = () => {
   return (
-    <div>
+    <div className="">
       <Navbar />
-      <ScrollRestoration/>
-      <div className="min-h-[calc(100vh-288px)] container mx-auto">
+      <div className="min-h-[calc(100vh-348px)] container mx-auto">
         <Outlet />
+        <ScrollRestoration/>
       </div>
       <Footer />
     </div>
