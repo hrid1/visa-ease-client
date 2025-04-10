@@ -25,7 +25,7 @@ const LatestVisas = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12 ">
-        <Zoom>
+        <Zoom> 
           {visas.slice(0, 6).map((visa, idx) => (
             <LatestVisaCard key={idx} visa={visa} />
           ))}

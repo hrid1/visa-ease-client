@@ -1,9 +1,14 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/hrid1/visa-ease-client/refs/heads/main/Screenshot%202025-04-10%20221947.png" alt="VisaEase Screenshot" width="60%" />
+</p>
+
+
 # VisaEase
 
 VisaEa&e is a user-friendly portal designed to simplify the visa application process. With a dynamic interface and robust functionality, users can seamlessly browse visa requirements, apply for visas, and track their applications.
 
 ## Live Site URL
-[Visit MyVisaNavigator Live](https://visa-ease-1621f.web.app/)
+[Visa-Ease](https://visa-ease-1621f.web.app/)
 
 ## Features
 - **Comprehensive Visa Listings**: Explore detailed information about various visas, including processing time, fees, and application methods.
